@@ -1,0 +1,244 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- SEO الأساسي -->
+    <title>OmarX Gaming | عمر هشام - مطور ألعاب ومواقع تقنية</title>
+    <meta name="description" content="الموقع الرسمي لعمر هشام (OmarX Gaming). استكشف مشاريع تطوير الألعاب، المواقع الإلكترونية، وأحدث الابتكارات التقنية. تواصل معنا وشاركنا اقتراحاتك." />
+    <meta name="keywords" content="OmarX Gaming, عمر هشام, تطوير ألعاب, برمجة مواقع, Unity developer, Web developer, صناعة محتوى ألعاب, مشاريع تقنية" />
+    <meta name="author" content="Omar Hesham (OmarX Gaming)" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://omarx-gaming.example.com" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://omarx-gaming.example.com" />
+    <meta property="og:title" content="OmarX Gaming | عمر هشام - مطور ألعاب ومواقع تقنية" />
+    <meta property="og:description" content="الموقع الرسمي لعمر هشام (OmarX Gaming). استكشف مشاريع تطوير الألعاب، المواقع الإلكترونية، وأحدث الابتكارات التقنية." />
+    <meta property="og:image" content="https://picsum.photos/seed/omarx/1200/630" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://omarx-gaming.example.com" />
+    <meta property="twitter:title" content="OmarX Gaming | عمر هشام - مطور ألعاب ومواقع تقنية" />
+    <meta property="twitter:description" content="الموقع الرسمي لعمر هشام (OmarX Gaming). استكشف مشاريع تطوير الألعاب، المواقع الإلكترونية، وأحدث الابتكارات التقنية." />
+    <meta property="twitter:image" content="https://picsum.photos/seed/omarx/1200/630" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Cairo', sans-serif;
+        background-color: #0f172a;
+        color: #f8fafc;
+        scroll-behavior: smooth;
+        cursor: none; /* Hide default cursor for custom one */
+        overflow-x: hidden;
+      }
+      /* Custom Gaming Cursor */
+      #cursor {
+        width: 20px;
+        height: 20px;
+        background: rgba(99, 102, 241, 0.5);
+        border: 2px solid #6366f1;
+        border-radius: 50%;
+        position: fixed;
+        pointer-events: none;
+        z-index: 10000;
+        transition: transform 0.1s ease-out, background 0.3s ease;
+        transform: translate(-50%, -50%);
+      }
+      #cursor-follower {
+        width: 40px;
+        height: 40px;
+        border: 1px solid rgba(99, 102, 241, 0.3);
+        border-radius: 50%;
+        position: fixed;
+        pointer-events: none;
+        z-index: 9999;
+        transition: transform 0.15s ease-out;
+        transform: translate(-50%, -50%);
+      }
+      .cursor-hover {
+        transform: translate(-50%, -50%) scale(1.5) !important;
+        background: rgba(99, 102, 241, 0.8) !important;
+      }
+      @media (max-width: 768px) {
+        body { cursor: auto; } /* Show default cursor on mobile */
+        #cursor, #cursor-follower { display: none; }
+      }
+      .gaming-gradient {
+        background: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
+      }
+      .glass-card {
+        background: rgba(30, 41, 59, 0.7);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      /* Scroll Progress Bar */
+      #scroll-progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 4px;
+        background: linear-gradient(to right, #6366f1, #ec4899);
+        z-index: 9999;
+        transition: width 0.1s ease-out;
+      }
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0f172a;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #334155;
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #6366f1;
+      }
+      @keyframes fade-in {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .animate-in {
+        animation: fade-in 0.6s ease-out forwards;
+      }
+      /* Back to Top Button */
+      #back-to-top {
+        position: fixed;
+        bottom: 30px;
+        left: 30px;
+        width: 50px;
+        height: 50px;
+        background: #6366f1;
+        color: white;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 999;
+        box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+      }
+      #back-to-top.visible {
+        opacity: 1;
+        visibility: visible;
+      }
+      #back-to-top:hover {
+        transform: translateY(-5px);
+        background: #4f46e5;
+      }
+      /* Floating Background Elements */
+      .bg-blob {
+        position: fixed;
+        width: 300px;
+        height: 300px;
+        background: rgba(99, 102, 241, 0.1);
+        filter: blur(80px);
+        border-radius: 50%;
+        z-index: -1;
+        pointer-events: none;
+        animation: float 20s infinite alternate;
+      }
+      @keyframes float {
+        0% { transform: translate(0, 0); }
+        100% { transform: translate(100px, 100px); }
+      }
+      /* Custom Selection Color */
+      ::selection {
+        background: rgba(99, 102, 241, 0.3);
+        color: #fff;
+      }
+    </style>
+    <script>
+      // Scroll Progress & Back to Top Logic
+      window.addEventListener('scroll', () => {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        
+        const progressBar = document.getElementById('scroll-progress');
+        if (progressBar) progressBar.style.width = scrolled + "%";
+
+        const backToTop = document.getElementById('back-to-top');
+        if (backToTop) {
+          if (winScroll > 500) backToTop.classList.add('visible');
+          else backToTop.classList.remove('visible');
+        }
+      });
+
+      function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    </script>
+
+  <link rel="stylesheet" href="/index.css">
+    <script type="importmap">
+{
+  "imports": {
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.13.0",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "firebase/app": "https://esm.sh/firebase@10.7.1/app",
+    "firebase/firestore": "https://esm.sh/firebase@10.7.1/firestore",
+    "@google/genai": "https://esm.sh/@google/genai@^1.41.0",
+    "firebase/": "https://esm.sh/firebase@^12.9.0/"
+  }
+}
+</script>
+  <script type="module" crossorigin src="/assets/index-DGBTkUTO.js"></script>
+</head>
+  <body>
+    <div id="cursor"></div>
+    <div id="cursor-follower"></div>
+    <div id="scroll-progress"></div>
+    <div class="bg-blob" style="top: 10%; right: 10%;"></div>
+    <div class="bg-blob" style="bottom: 10%; left: 10%; background: rgba(236, 72, 153, 0.1);"></div>
+    
+    <div id="back-to-top" onclick="scrollToTop()">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 15l7-7 7 7"></path></svg>
+    </div>
+
+    <div id="root"></div>
+  <script>
+    // Cursor Movement
+    const cursor = document.getElementById('cursor');
+    const follower = document.getElementById('cursor-follower');
+    
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+      
+      setTimeout(() => {
+        follower.style.left = e.clientX + 'px';
+        follower.style.top = e.clientY + 'px';
+      }, 50);
+    });
+
+    // Cursor Hover Effect
+    document.addEventListener('mouseover', (e) => {
+      if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.closest('button') || e.target.closest('a')) {
+        cursor.classList.add('cursor-hover');
+      }
+    });
+
+    document.addEventListener('mouseout', (e) => {
+      if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.closest('button') || e.target.closest('a')) {
+        cursor.classList.remove('cursor-hover');
+      }
+    });
+  </script>
+</body>
+</html>
